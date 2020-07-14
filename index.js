@@ -206,8 +206,18 @@ convertGrade(60);
 // Hint - you may need to study tomorrow's traning kit on arrays
 // try looking up the .includes() method
 
+let vowelCounter = function(userInput){
+    let vowelCount = 0;
+    // xxx to split string in to character Array;
+    for(i = userArray.length; i > 0 ; i--){
+        if(userArray.includes(a || e || i || o || u || A || E || I || O || U) ) {
+            vowelCount = vowelCount + 1;
+        }
+    }
+    console.log(userInput + "contains " + vowelCount + " vowels.")
+}
 
-
+vowelCounter("Who'd have thunk it?")
 
 
 /************************************************************** Stretch **************************************************************/
