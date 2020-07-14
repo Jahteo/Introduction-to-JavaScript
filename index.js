@@ -42,9 +42,9 @@ let ageInDogYears;
 let humanAge;
 let ageConverter = function(humanAge) {
     ageInDogYears = humanAge * 7;
+    console.log(ageInDogYears);
     }
-console.log(ageConverter(32));
-
+    ageConverter(32);
 // returning undefined for some reason... grrr
 
 /************************************************************** Task 3 **************************************************************/
