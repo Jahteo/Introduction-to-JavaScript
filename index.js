@@ -38,9 +38,14 @@ console.log(multiply(10, 20))
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years
 
+let ageInDogYears;
+let humanAge;
+let ageConverter = function(humanAge) {
+    ageInDogYears = humanAge * 7;
+    }
+console.log(ageConverter(32));
 
-
-
+// returning undefined for some reason... grrr
 
 /************************************************************** Task 3 **************************************************************/
 //Dog feeder
@@ -61,8 +66,29 @@ console.log(multiply(10, 20))
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
 
 
-
-
+let dogFeeder = function (age, weight){
+    if( age >= 1 ) {
+        if( weight <= 5 ) {
+            feed = weight * .05;
+        } else if ( 5 < weight && weight <= 10 ) {
+            feed = weight * .04;
+        } else if ( 10 < weight && weight <= 15 ) {
+            feed = weight * .03;
+        } else if ( weight < 15 ) {
+            feed = weight * .02;
+        // } else {
+        //     console.log("Please try again with dog's weight")
+        }
+    } else if ( (2/12) < age && age < (4/12) ) {
+        feed = weight * .1;
+    } else if ( (4/12) <= age && age < (7/12) ) {
+        feed = weight * .05;
+    } else if ( (7/12) <= age && age < 1 ) {
+        feed = weight * .04;
+    }
+    console.log("Feed Me " + feed + " pounds of raw food a day");
+}
+dogFeeder(1, 15);
 
 /************************************************************** Task 4 **************************************************************/
 // Rock, Paper, Sissors
@@ -122,8 +148,5 @@ console.log(multiply(10, 20))
 /************************************************************** Stretch **************************************************************/
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
-
-
-
 
 
