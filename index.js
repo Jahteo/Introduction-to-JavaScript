@@ -146,14 +146,18 @@ rockPaperScissors("spock");
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
-
-
+let metricConverter = function (miles) {
+    console.log(miles + " miles converts to " + (miles*1.60934) + " kilometers" )
+}
+metricConverter(32);
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
 
-
-
+let feetToCentimeters = function (feet){
+    console.log(feet + " feet converts to " + (feet*30.48) + " cm.")
+}
+feetToCentimeters(7);
 
 
 /************************************************************** Task 6 **************************************************************/
