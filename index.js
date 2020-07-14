@@ -42,7 +42,7 @@ let ageInDogYears;
 let humanAge;
 let ageConverter = function(humanAge) {
     ageInDogYears = humanAge * 7;
-    console.log(ageInDogYears);
+    console.log("I am " + ageInDogYears + " in dog years.");
     }
     ageConverter(32);
 // returning undefined for some reason... grrr
@@ -98,6 +98,48 @@ dogFeeder(1, 15);
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number
 
 
+// sytax expanded bc it was frying my brain...
+// 99% sure there's a more elegant solution in here. Excited to find it later.
+let rockPaperScissors = function ( playerChoice) {
+    let computerNumber = Math.random();
+    if ( computerNumber <= (1/3) ) {
+        computerChoice = "Rock";
+    } else if ( (1/3) < computerNumber && computerNumber <= (2/3) ) {
+        computerChoice = "Paper";
+    } else {
+        computerChoice = "Scissors"
+    }
+
+    if ( playerChoice === "Rock" || playerChoice === "rock" ) {
+        if ( computerChoice === "Rock" ) {
+            result = "ties";
+        } else if ( computerChoice === "Paper" ) {
+            result = "loses";
+        } else {
+            result = "wins";
+        }
+    } else if ( playerChoice === "Paper" || playerChoice === "paper" ) {
+        if ( computerChoice === "Rock" ) {
+            result = "wins";
+        } else if ( computerChoice === "Paper" ) {
+            result = "ties";
+        } else {
+            result = "loses";
+        }
+    } else if ( playerChoice === "Scissors" || playerChoice === "scissors" ){
+        if ( computerChoice === "Rock" ) {
+            result = "loses";
+        } else if ( computerChoice === "Paper" ) {
+            result = "wins";
+        }else {
+            result = "ties";
+        }
+    } else {
+        result = "cheated"
+    }
+    console.log("Player " + result );
+}
+rockPaperScissors("spock");
 
 
 /************************************************************** Task 5 **************************************************************/
