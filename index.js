@@ -208,16 +208,24 @@ convertGrade(60);
 
 let vowelCounter = function(userInput){
     let vowelCount = 0;
-    // xxx to split string in to character Array;
-    for(i = userArray.length; i > 0 ; i--){
-        if(userArray.includes(a || e || i || o || u || A || E || I || O || U) ) {
-            vowelCount = vowelCount + 1;
+    let userArray = userInput.toLowerCase().split("");
+    console.log("this is the userArray: ", userArray)
+    //start at last point of array and loop through
+    // for(i = userArray.length ; i > 0 ; i--){
+    for(let i = 0 ; i < userArray.length ; i++ ){
+        // if(userArray.includes( ("a" || "e" || "i" || "o" || "u" || "A" || "E" || "I" || "O" || "U") , i ) ) {
+        if(userArray[i] === ("a" || "e" || "i" || "o" || "u" ) ) {
+            return vowelCount++;
         }
     }
-    console.log(userInput + "contains " + vowelCount + " vowels.")
+    console.log(`vowel count at i ${i} & userArray[i]:${userArray[i]} and vowelcount = ${vowelCount}`);
+    console.log("'" + userInput + "' contains " + vowelCount + " vowels.");
 }
 
-vowelCounter("Who'd have thunk it?")
+
+
+vowelCounter("Testing testing");
+vowelCounter("who'd have thunk?");
 
 
 /************************************************************** Stretch **************************************************************/
