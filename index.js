@@ -20,8 +20,9 @@ console.log (dog)
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
-
-console.log(parseInt("1999"));
+const strToInt = parseInt("1999")
+const name = "Josh"
+console.log(typeof name, strToInt);
 
 
 
@@ -40,11 +41,10 @@ console.log(multiply(10, 20))
 
 let ageInDogYears;
 let humanAge;
-let ageConverter = function(humanAge) {
-    ageInDogYears = humanAge * 7;
-    console.log("I am " + ageInDogYears + " in dog years.");
-    }
-    ageConverter(32);
+let ageConverter = (humanAge) => {
+    return humanAge * 7;
+}
+console.log("I am " + ageConverter(32) + " in dog years.");
 // returning undefined for some reason... grrr
 
 /************************************************************** Task 3 **************************************************************/
@@ -74,7 +74,7 @@ let dogFeeder = function (age, weight){
             feed = weight * .04;
         } else if ( 10 < weight && weight <= 15 ) {
             feed = weight * .03;
-        } else if ( weight < 15 ) {
+        } else if ( weight > 15 ) {
             feed = weight * .02;
         // } else {
         //     console.log("Please try again with dog's weight")
@@ -147,9 +147,10 @@ rockPaperScissors("spock");
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
 let metricConverter = function (miles) {
-    console.log(miles + " miles converts to " + (miles*1.60934) + " kilometers" )
+    return miles*1.60934;
 }
-metricConverter(32);
+console.log(32 + " miles converts to " + metricConverter(32) + " kilometers" )
+;
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
@@ -166,9 +167,9 @@ feetToCentimeters(7);
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
 
 
-let annoyingSong = function(startingNumber){
-    for(i = startingNumber; i > 0; i--){
-        console.log(i + " bottles of pop on the wall, " + i + " bottles of pop, take one down and pass it around, " + (i-1) + " bottles of pop on the wall")
+let annoyingSong = function (startingNumber) {
+    for(i = startingNumber ; i > 0 ; i--) {
+        console.log (i + " bottles of pop on the wall, " + i + " bottles of pop, take one down and pass it around, " + (i-1) + " bottles of pop on the wall")
     }
 }
 annoyingSong(7)
@@ -205,29 +206,37 @@ convertGrade(60);
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays
 // try looking up the .includes() method
+const vowels =["a", "e", "i", "o", "u"];
 
-let vowelCounter = function(userInput){
+function vowelCounter (userInput) {
     let vowelCount = 0;
-    let userArray = userInput.toLowerCase().split("");
-    console.log("this is the userArray: ", userArray)
-    //start at last point of array and loop through
-    // for(i = userArray.length ; i > 0 ; i--){
-    for(let i = 0 ; i < userArray.length ; i++ ){
-        // if(userArray.includes( ("a" || "e" || "i" || "o" || "u" || "A" || "E" || "I" || "O" || "U") , i ) ) {
-        if(userArray[i] === ("a" || "e" || "i" || "o" || "u" ) ) {
-            return vowelCount++;
+ for (let letter of userInput.toLowerCase()) {
+        if(vowels.includes(letter)){
+           vowelCount++
         }
     }
-    console.log(`vowel count at i ${i} & userArray[i]:${userArray[i]} and vowelcount = ${vowelCount}`);
-    console.log("'" + userInput + "' contains " + vowelCount + " vowels.");
+    return `This text contains ${vowelCount} vowels`;
 }
+console.log(vowelCounter(`My name is Josh and I am a super cool developer`))
 
 
+// console.log(`vowel count at i ${i} & userArray[i]:${userArray[i]} and vowelcount = ${vowelCount}`);
+// console.log("'" + userInput + "' contains " + vowelCount + " vowels.");
 
-vowelCounter("Testing testing");
-vowelCounter("who'd have thunk?");
+// console.log(`testing vowelCounter ${vowelCounter("Testing testing")}`);
+// vowelCounter("who'd have thunk?");
 
-
+//  const vowels = ["a", "e", "i", "o", "u"];
+// function vowelCounter(text) {
+//   let counter = 0;
+//   for (let letter of text.toLowerCase()){
+//     if (vowels.includes(letter)) {
+//        counter++
+//     }
+// }
+// return `The text contains ${counter} vowel(s)`
+// }
+// console.log(vowelCounter('I am a world-class developer using iterations'));
 /************************************************************** Stretch **************************************************************/
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
