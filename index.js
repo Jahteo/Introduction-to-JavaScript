@@ -1,26 +1,23 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
-let votingAge=20;
-if(votingAge > 18){
+
+let votingAge = 20;
+if (votingAge > 18) {
     console.log(true)
 }
-
-
-// What I want to answer
-
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
 
 let dog = "Sofie";
 let dogFur = "red";
-if (dogFur != "Fluffy Black & white"){
+if ( dogFur != "Fluffy Black & white" ) {
     dog = "Defintely not Sofie";
 }
-console.log (dog)
+console.log(dog)
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
-const strToInt = parseInt("1999")
+const strToInt = parseInt ("1999", 0)
 const name = "Josh"
 console.log(typeof name, strToInt);
 
@@ -29,8 +26,8 @@ console.log(typeof name, strToInt);
 
 //Task d: Write a function to multiply a*b
 
-function multiply(a, b){
-    return a*b;
+function multiply (a, b) {
+    return a * b;
 }
 console.log(multiply(10, 20))
 
@@ -39,13 +36,8 @@ console.log(multiply(10, 20))
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years
 
-let ageInDogYears;
-let humanAge;
-let ageConverter = (humanAge) => {
-    return humanAge * 7;
-}
+let ageConverter = (humanAge) => humanAge * 7;
 console.log("I am " + ageConverter(32) + " in dog years.");
-// returning undefined for some reason... grrr
 
 /************************************************************** Task 3 **************************************************************/
 //Dog feeder
@@ -66,20 +58,18 @@ console.log("I am " + ageConverter(32) + " in dog years.");
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
 
 
-let dogFeeder = function (age, weight){
-    if( age >= 1 ) {
-        if( weight <= 5 ) {
+let dogFeeder = function (age, weight) {
+    if (age >= 1) {
+        if (weight <= 5) {
             feed = weight * .05;
-        } else if ( 5 < weight && weight <= 10 ) {
+        } else if (5 < weight && weight <= 10) {
             feed = weight * .04;
-        } else if ( 10 < weight && weight <= 15 ) {
+        } else if (10 < weight && weight <= 15) {
             feed = weight * .03;
-        } else if ( weight > 15 ) {
+        } else if (weight > 15) {
             feed = weight * .02;
-        // } else {
-        //     console.log("Please try again with dog's weight")
         }
-    } else if ( (2/12) < age && age < (4/12) ) {
+    } else if ((2/12) < age && age < (4/12)) {
         feed = weight * .1;
     } else if ( (4/12) <= age && age < (7/12) ) {
         feed = weight * .05;
@@ -89,6 +79,38 @@ let dogFeeder = function (age, weight){
     console.log("Feed Me " + feed + " pounds of raw food a day");
 }
 dogFeeder(1, 15);
+
+//Extra cleaned solution, from working w Yetti
+
+let dogFeeder2 = function (age, weight) {
+    if (typeof age !== 'number') {
+      throw new Error ("Please try again with dog's age")
+    }
+    if (typeof weight !== 'number') {
+      throw new Error ("Please try again with dog's weight")
+    }
+    if (age < 2 / 12) {
+      return 'nursing'
+    } else if ( age < 4 / 12 ) {
+      return weight * .1;
+    } else if ( age < 7 / 12 ) {
+      return weight * .05;
+    } else if ( age < 1 ) {
+      return weight * .04;
+    } else {
+      if ( weight <= 5 ) {
+        return weight * .05;
+      } else if ( weight <= 10 ) {
+        return weight * .04;
+      } else if ( weight <= 15 ) {
+        return weight * .03;
+      } else {
+        return weight * .02;
+      }
+    }
+  }
+
+  console.log("Feed Me " + dogFeeder2(1, 15) + " pounds of raw food a day");
 
 /************************************************************** Task 4 **************************************************************/
 // Rock, Paper, Sissors
@@ -100,7 +122,8 @@ dogFeeder(1, 15);
 
 // sytax expanded bc it was frying my brain...
 // 99% sure there's a more elegant solution in here. Excited to find it later.
-let rockPaperScissors = function ( playerChoice) {
+
+let rockPaperScissors = function (playerChoice) {
     let computerNumber = Math.random();
     if ( computerNumber <= (1/3) ) {
         computerChoice = "Rock";
@@ -137,9 +160,9 @@ let rockPaperScissors = function ( playerChoice) {
     } else {
         result = "cheated"
     }
-    console.log("Player " + result );
+    return result;
 }
-rockPaperScissors("spock");
+console.log(`Player ${rockPaperScissors("spock")}`);
 
 
 /************************************************************** Task 5 **************************************************************/
@@ -147,7 +170,7 @@ rockPaperScissors("spock");
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
 let metricConverter = function (miles) {
-    return miles*1.60934;
+    return miles * 1.60934;
 }
 console.log(32 + " miles converts to " + metricConverter(32) + " kilometers" )
 ;
@@ -155,10 +178,10 @@ console.log(32 + " miles converts to " + metricConverter(32) + " kilometers" )
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
 
-let feetToCentimeters = function (feet){
-    console.log(feet + " feet converts to " + (feet*30.48) + " cm.")
+let feetToCentimeters = (feet) => {
+    return feet * 30.48;
 }
-feetToCentimeters(7);
+console.log(`feetToCentimeters returns ${feetToCentimeters(7)}`);
 
 
 /************************************************************** Task 6 **************************************************************/
@@ -168,11 +191,14 @@ feetToCentimeters(7);
 
 
 let annoyingSong = function (startingNumber) {
-    for(i = startingNumber ; i > 0 ; i--) {
-        console.log (i + " bottles of pop on the wall, " + i + " bottles of pop, take one down and pass it around, " + (i-1) + " bottles of pop on the wall")
+    let song = "";
+    for (i = startingNumber ; i > 0 ; i--) {
+        song = song + (i + " bottles of pop on the wall, " + i + " bottles of pop, take one down and pass it around, " + (i-1) + " bottles of pop on the wall. ")
     }
+    return song;
 }
-annoyingSong(7)
+console.log(annoyingSong(7))
+
 
 /************************************************************** Task 7 **************************************************************/
 //Grade Calculator
@@ -184,35 +210,34 @@ annoyingSong(7)
 //and anything below 60 should be F
 
 
-const convertGrade = function(numberGrade){
-    if(numberGrade >= 90){
+const convertGrade = function (numberGrade) {
+    if (numberGrade >= 90){
         letterGrade = "A";
-    }
-    else if(numberGrade >= 80){
+    } else if (numberGrade >= 80){
         letterGrade = "B";
-    }
-    else if(numberGrade >= 70){
+    } else if (numberGrade >= 70){
         letterGrade = "C";
-    }else if(numberGrade >= 60){
+    } else if (numberGrade >= 60){
         letterGrade = "D";
-    }else{
+    } else {
         letterGrade = "F";
     }
-    console.log(letterGrade)
+    return letterGrade;
 }
-convertGrade(60);
+console.log(`Letter grade: `, convertGrade(60))
 
 /************************************************************** Stretch **************************************************************/
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays
 // try looking up the .includes() method
+
 const vowels =["a", "e", "i", "o", "u"];
 
 function vowelCounter (userInput) {
     let vowelCount = 0;
- for (let letter of userInput.toLowerCase()) {
-        if(vowels.includes(letter)){
-           vowelCount++
+    for (let letter of userInput.toLowerCase()) {
+        if (vowels.includes(letter)) {
+           vowelCount++;
         }
     }
     return `This text contains ${vowelCount} vowels`;
